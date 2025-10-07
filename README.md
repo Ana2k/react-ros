@@ -2,6 +2,37 @@
 
 This project provides a web-based interface for controlling a ROS robot using React frontend and ROS backend.
 
+## Architecture Overview
+
+```
+┌─────────────────┐    WebSocket     ┌─────────────────┐    ROS Topics    ┌─────────────────┐
+│                 │    (Port 9090)   │                 │                  │                 │
+│  React Frontend │◄─────────────────►│  ROS Bridge     │◄─────────────────►│  Robot Simulator│
+│  (Port 3000)    │                  │  Server         │                  │  Node           │
+│                 │                  │                 │                  │                 │
+└─────────────────┘                  └─────────────────┘                  └─────────────────┘
+        │                                     │                                     │
+        │                                     │                                     │
+        ▼                                     ▼                                     ▼
+   User Interface                    WebSocket Gateway                    Robot Logic
+   - Control Buttons                 - /robot_status topic               - Status Publisher
+   - Connection Status               - /cmd_vel topic                    - Command Subscriber
+   - Real-time Updates               - Message Translation               - Movement Simulation
+```
+
+## How It Works
+
+**Frontend (React)**: A web interface that connects to ROS via WebSocket, allowing users to control a robot with simple buttons (Forward, Backward, Left, Right, Stop).
+
+**Backend (ROS)**: A robot simulation system that:
+
+- Runs a virtual robot that responds to movement commands
+- Publishes robot status updates
+- Receives control commands from the web interface
+- Uses ROS topics for communication between components
+
+**Communication**: The React frontend and ROS backend communicate through a WebSocket bridge, translating web messages to ROS topics and vice versa.
+
 ## Project Structure
 
 ```
