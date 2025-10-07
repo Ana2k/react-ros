@@ -10,15 +10,26 @@ function App() {
   const cmdVelPublisher = useRef(null);
 
   useEffect(() => {
+    const rosUrl =
+      process.env.REACT_APP_ROS_WEBSOCKET_URL || 'ws://localhost:9090';
+    console.log('Connecting to ROS at:', rosUrl);
+
     ros.current = new ROSLIB.Ros({
-      url: process.env.REACT_APP_ROS_WEBSOCKET_URL || 'ws://localhost:9090',
+      url: rosUrl,
     });
     ros.current.on('connection', () => {
+      console.log('ROS Connected!');
       setConnectionStatus('Connected');
       setupSubscribersAndPublishers();
     });
-    ros.current.on('error', (error) => setConnectionStatus('Error'));
-    ros.current.on('close', () => setConnectionStatus('Disconnected'));
+    ros.current.on('error', (error) => {
+      console.error('ROS Connection Error:', error);
+      setConnectionStatus('Error');
+    });
+    ros.current.on('close', () => {
+      console.log('ROS Connection Closed');
+      setConnectionStatus('Disconnected');
+    });
 
     const setupSubscribersAndPublishers = () => {
       statusListener.current = new ROSLIB.Topic({
