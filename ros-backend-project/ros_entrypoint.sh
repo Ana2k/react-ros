@@ -4,4 +4,5 @@ set -e
 # Setup the ROS environment
 source "/opt/ros/noetic/setup.bash"
 
-exec "$@"
+# Execute the command passed to the script
+"$@"
