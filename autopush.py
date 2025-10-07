@@ -124,7 +124,7 @@ def main():
     commands = [
         'git add .',
         f'git commit -m "{commit_message}"',
-        f'git push origin {current_branch}'
+        # f'git push origin {current_branch}'
     ]
     
     # Execute each command
