@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   ros-backend:
     build:
@@ -7,7 +6,7 @@ services:
     container_name: ros_backend
     ports:
       - "9090:9090" # ROS bridge websocket
-    command: /bin/bash -c "source /opt/ros/noetic/setup.bash && source /catkin_ws/devel/setup.bash && roscore & sleep 5 && roslaunch my_pkg robot_sum.launch"
+    command: /start_ros.sh
     networks:
       - ros-network
 

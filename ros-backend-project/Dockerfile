@@ -13,11 +13,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY ros_entrypoint.sh /ros_entrypoint.sh
 RUN chmod +x /ros_entrypoint.sh
 
-# Create a ROS package to hold our nodes and launch files
-# We add geometry_msgs because our commands will use it
-RUN /bin/bash -c ". /opt/ros/noetic/setup.bash; catkin_create_pkg my_pkg std_msgs rospy geometry_msgs"
+# Copy the startup script and make it executable
+COPY start_ros.sh /start_ros.sh
+RUN chmod +x /start_ros.sh
 
-# Copy our new application files into the workspace
+# Copy our new application files into the workspace first
 COPY src/my_pkg /catkin_ws/src/my_pkg
 
 # Make our python script executable
@@ -27,4 +27,4 @@ RUN chmod +x /catkin_ws/src/my_pkg/scripts/robot_sim_node.py
 RUN /bin/bash -c ". /opt/ros/noetic/setup.bash; cd /catkin_ws; catkin_make"
 
 # Source the new setup file in the entrypoint so ROS can find our package
-RUN echo "source /catkin_ws/devel/setup.bash" >> /ros_entrypoint.sh
+RUN echo "" >> /ros_entrypoint.sh && echo "source /catkin_ws/devel/setup.bash" >> /ros_entrypoint.sh
