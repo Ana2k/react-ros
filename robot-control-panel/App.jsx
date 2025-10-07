@@ -79,3 +79,4 @@ function App() {
     </div>
   );
 }
+export return default App;
