@@ -1,0 +1,11 @@
+version: '3'
+    services:
+      ros-container:
+        build: .
+        container_name: ros_core
+        ports:
+          # This exposes the rosbridge websocket (port 9090) from the container to your Mac
+          - "9090:9090"
+        command: /bin/bash -c "source /ros_entrypoint.sh && roslaunch my_pkg robot_sim.launch"
+    
+
