@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  ros-backend:
+    build:
+      context: ./ros-backend-project
+      dockerfile: Dockerfile
+    container_name: ros_backend
+    ports:
+      - "9090:9090" # ROS bridge websocket
+    command: /bin/bash -c "source /ros_entrypoint.sh && roslaunch my_pkg robot_sum.launch"
+    networks:
+      - ros-network
+
+  react-frontend:
+    build:
+      context: ./robot-control-panel
+      dockerfile: Dockerfile
+    container_name: react_frontend
+    ports:
+      - "3000:3000" # React development server
+    depends_on:
+      - ros-backend
+    networks:
+      - ros-network
+    environment:
+      - REACT_APP_ROS_WEBSOCKET_URL=ws://ros-backend:9090
+
+networks:
+  ros-network:
+    driver: bridge

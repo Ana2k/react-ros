@@ -10,7 +10,9 @@ function App() {
   const cmdVelPublisher = useRef(null);
 
   useEffect(() => {
-    ros.current = new ROSLIB.Ros({ url: 'ws://localhost:9090' });
+    ros.current = new ROSLIB.Ros({
+      url: process.env.REACT_APP_ROS_WEBSOCKET_URL || 'ws://localhost:9090',
+    });
     ros.current.on('connection', () => {
       setConnectionStatus('Connected');
       setupSubscribersAndPublishers();
@@ -79,4 +81,4 @@ function App() {
     </div>
   );
 }
-export return default App;
+export default App;
