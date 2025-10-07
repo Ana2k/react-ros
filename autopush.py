@@ -134,7 +134,7 @@ def main():
             print("Git operation failed. Stopping execution.")
             return
     
-    print("\nCommitted with pushing to current branch\n Operations completed successfully!")
+    print("\nCommitted with pushing to current branch\nOperations completed successfully!")
 
 if __name__ == "__main__":
     main()
