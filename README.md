@@ -15,12 +15,12 @@ This application allows you to control a virtual robot through your web browser.
 
 ### Disconnected State
 
-![Disconnected State](Screenshot%202025-10-07%20at%2020.51.54.png)
+![Disconnected State](Screenshot%202025-10-07%20at%2020.54.40.png)
 _The interface shows "Disconnected" status when not connected to ROS backend_
 
 ### Connected & Functional State
 
-![Connected State](Screenshot%202025-10-07%20at%2020.54.40.png)
+![Connected State](Screenshot%202025-10-07%20at%2020.51.54.png)
 _The interface shows "Connected" status and displays real-time robot status updates_
 
 ## Architecture Overall
