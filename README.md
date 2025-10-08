@@ -168,7 +168,7 @@ or
 docker-compose kill <process_name>
 ```
 
-## 🔄 Pausing/Resuming Services
+## Pausing/Resuming Services
 
 ### Pause ROS Backend
 
