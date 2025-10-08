@@ -118,7 +118,7 @@ The ROS backend runs in a containerized environment. To modify:
 - **Nodes**: Individual programs (robot simulator, rosbridge server)
 - **Launch Files**: Configuration for starting multiple nodes
 
-## 🎮 Robot Control Interface
+## Robot Control Interface
 
 The web interface provides:
 
@@ -163,6 +163,10 @@ The web interface provides:
 ```bash
 docker-compose down
 ```
+or 
+```bash
+docker-compose kill <process_name>
+```
 
 ## 🔄 Pausing/Resuming Services
 
@@ -187,4 +191,3 @@ docker-compose pause
 
 ---
 
-**Happy Robot Controlling! 🤖**
