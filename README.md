@@ -63,36 +63,6 @@ _The interface shows "Connected" status and displays real-time robot status upda
 User clicks "Forward" → React → WebSocket → ROS Bridge → Robot Simulator → Status Update → Back to UI
 ```
 
-## 📁 Project Structure
-
-```
-ros-react/
-├── docker-compose.yml              # Main deployment configuration
-├── README.md                       # This file
-├── Screenshot 2025-10-07 at 20.51.54.png  # Disconnected state
-├── Screenshot 2025-10-07 at 20.54.40.png  # Connected state
-├── robot-control-panel/            # React frontend
-│   ├── Dockerfile
-│   ├── package.json
-│   ├── src/
-│   │   ├── App.jsx                 # Main React component
-│   │   ├── App.css                 # Styling
-│   │   └── index.js                # Entry point
-│   └── public/
-│       └── index.html
-└── ros-backend-project/            # ROS backend
-    ├── Dockerfile
-    ├── ros_entrypoint.sh           # ROS environment setup
-    ├── start_ros.sh                # Startup script
-    └── src/my_pkg/
-        ├── CMakeLists.txt
-        ├── package.xml
-        ├── launch/
-        │   └── robot_sum.launch    # ROS launch configuration
-        └── scripts/
-            └── robot_sim_node.py   # Robot simulation logic
-```
-
 ## Quick Start
 
 ### Prerequisites
