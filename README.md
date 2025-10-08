@@ -2,7 +2,7 @@
 
 A web-based interface for controlling a ROS robot using React frontend and ROS backend. This project demonstrates real-time robot control through a modern web interface with WebSocket communication.
 
-## 🎯 What This Project Does
+## Project Synopsis
 
 This application allows you to control a virtual robot through your web browser. You can:
 
@@ -11,7 +11,7 @@ This application allows you to control a virtual robot through your web browser.
 - **Monitor** real-time robot status and connection state
 - **Experience** seamless communication between web frontend and ROS backend
 
-## 📱 Screenshots
+## Screenshots
 
 ### Disconnected State
 
@@ -23,7 +23,7 @@ _The interface shows "Disconnected" status when not connected to ROS backend_
 ![Connected State](Screenshot%202025-10-07%20at%2020.54.40.png)
 _The interface shows "Connected" status and displays real-time robot status updates_
 
-## 🏗️ Architecture Overview
+## Architecture Overall
 
 ```
 ┌─────────────────┐    WebSocket     ┌─────────────────┐    ROS Topics    ┌─────────────────┐
@@ -41,11 +41,11 @@ _The interface shows "Connected" status and displays real-time robot status upda
    - Real-time Updates               - Message Translation               - Movement Simulation
 ```
 
-## 🔧 How It Works
+## Fullstack functionalities
 
 ### Frontend (React)
 
-- **Web Interface**: Clean, responsive UI with control buttons
+- **Web Interface**: Responsive UI with control buttons
 - **Real-time Connection**: WebSocket connection to ROS backend
 - **Status Monitoring**: Live updates of robot state and connection status
 - **Command Sending**: Publishes movement commands to robot
@@ -93,7 +93,7 @@ ros-react/
             └── robot_sim_node.py   # Robot simulation logic
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -159,9 +159,9 @@ The web interface provides:
   - Left/Right (angular movement)
   - Stop (emergency stop)
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
-### Common Issues
+### Common Issues that I faced.
 
 1. **Connection Issues**:
 
@@ -173,6 +173,7 @@ The web interface provides:
 
    - Check if ports 3000 and 9090 are available
    - Use `lsof -i :3000` and `lsof -i :9090` to check
+   - Fix the version of the docker build compose
 
 3. **Build Issues**:
 
@@ -187,7 +188,7 @@ The web interface provides:
    docker-compose logs react-frontend
    ```
 
-## 🛑 Stopping the Services
+## Stopping the Services
 
 ```bash
 docker-compose down
@@ -213,31 +214,6 @@ docker-compose unpause ros-backend
 docker-compose pause
 ```
 
-## 🌟 Features
-
-- ✅ Real-time WebSocket communication
-- ✅ Responsive web interface
-- ✅ Docker containerization
-- ✅ ROS Noetic integration
-- ✅ Robot simulation
-- ✅ Connection status monitoring
-- ✅ Cross-platform compatibility
-
-## 🔮 Future Enhancements
-
-- Add camera feed display
-- Implement sensor data visualization
-- Add robot path planning
-- Include safety features and limits
-- Add multiple robot support
-- Implement user authentication
-
-## 📚 Learning Resources
-
-- [ROS Documentation](http://wiki.ros.org/)
-- [React Documentation](https://reactjs.org/docs/)
-- [Docker Documentation](https://docs.docker.com/)
-- [WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 
 ---
 
