@@ -94,7 +94,7 @@ User clicks "Forward" → React → WebSocket → ROS Bridge → Robot Simulator
    - Use the control buttons to move the robot
    - Watch the robot status update in real-time
 
-## 🛠️ Development
+## Development
 
 ### Frontend Development
 
